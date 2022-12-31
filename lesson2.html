@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function getRandomInteger(lower,upper)
+        {
+            var multiplier = upper -(lower-1);
+            var rnd=parseInt(Math.random()*multiplier)+lower;
+            return rnd;
+        }
+        function initialize()
+        {
+            arrayOutput = document.getElementById('divout');
+
+            randomList = [];
+            var randomLength = getRandomInteger(50,100);
+            
+            for(var i=0; i< randomLength; i++)
+            {
+                randomList[i]=getRandomInteger(0,9);
+                // randomList[randomList.length]=getRandomInteger(0,9);
+            }
+
+            displayList();
+           
+        }
+
+        function displayList()
+        {
+            arrayOutput.innerHTML = '';
+
+            for(var i =0; i<randomList.length; i++)
+            {
+                arrayOutput.innerHTML += i + ": " + randomList[i] + "<br />";
+                
+            }
+        }
+    </script>
+    <style>
+        body
+        {
+            font:bold 18pt calibri;
+        }
+    </style>
+</head>
+
+<body onload = 'initialize();'>
+    <div id ='divout'></div>
+</body>
+</html>
